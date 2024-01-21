@@ -42,7 +42,8 @@ const lastConn = new Map();
 const favicon = fs.existsSync(config.favicon) ? fs.readFileSync(config.favicon) : null;
 
 server.on('request', (req, res) => {
-  log(`${req.headers["x-forwarded-for"]?.split(",")[0] || req.socket.address()?.address} - ${req.method} ${req.url} [${req.headers["user-agent"] || ""}]`)
+  // log(`${req.headers["x-forwarded-for"]?.split(",")[0] || req.socket.address()?.address} - ${req.method} ${req.url} [${req.headers["user-agent"] || ""}]`)
+  log(`${req.method} ${req.url} || ""}]`)
 
   if (req.headers.accept?.includes("application/nostr+json"))
     return res.writeHead(200, {
